@@ -26,7 +26,7 @@ const Modal = ({
 
   return (
     <div className={`modal-overlay ${isOpen ? "show" : ""}`} onClick={onClose}>
-      <div className={`modal-container ${isOpen ? "open" : ""}`}>
+      <div className={`modal-container w-full ${width} ${isOpen ? "open" : ""}`}>
         {/* Modal */}
         <div
           className={`w-full ${width} bg-white shadow-xl`}

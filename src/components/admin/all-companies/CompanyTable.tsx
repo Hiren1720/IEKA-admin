@@ -7,6 +7,7 @@ import PageLoader from "../../common/loader/PageLoader";
 import Pagination from "../../common/pagination/Pagination";
 import CompanyInfo from "../../common/company-info";
 import OwnerInfo from "../../common/owner-info";
+import { useNavigate } from "react-router-dom";
 
 interface ICompanyListProps {
   activeCard: string;
@@ -40,8 +41,14 @@ export interface ICompany {
 
 export default function CompanyList({activeCard}: ICompanyListProps) {
 
+  const navigate = useNavigate();
+
   const getTotal = (stats: IEmployeeStats) => {
     return Number(stats.active + stats.inactive + stats.deleted);
+  }
+  // handle click on owner info
+  const handleOnClick = () => {
+    navigate("/owner-details")
   }
 
   // Define configuration structures with isolated column custom components
@@ -62,7 +69,7 @@ export default function CompanyList({activeCard}: ICompanyListProps) {
       header: 'Owners Info',
       className: 'w-[20%]',
       render: (row) => (
-        <OwnerInfo ownerInfo={row.companyRepresentative} />
+        <OwnerInfo ownerInfo={row.companyRepresentative} onClick={() => navigate(`/owner-details/${row?._id}`)}/>
       )
     },
     {
@@ -72,22 +79,22 @@ export default function CompanyList({activeCard}: ICompanyListProps) {
         <div className="flex items-center gap-1.5 text-center text-xs font-medium">
           {/* Total */}
           <div className="bg-gray-50 border border-gray-100 rounded px-2.5 py-1 min-w-[50px]">
-            <div className="text-[10px] text-gray-400 font-normal">Total</div>
-            <div className="text-gray-700 text-sm font-semibold">{getTotal(row.employeeStats)}</div>
+            <div className="text-sm text-info font-normal">Total</div>
+            <div className="text-info text-sm font-semibold">{getTotal(row.employeeStats)}</div>
           </div>
           {/* Active */}
           <div className="bg-green-50/50 border border-green-100 rounded px-2.5 py-1 min-w-[50px]">
-            <div className="text-[10px] text-green-500 font-normal">Active</div>
-            <div className="text-green-600 text-sm font-semibold">{row.employeeStats.active}</div>
+            <div className="text-sm text-success font-normal">Active</div>
+            <div className="text-success text-sm font-semibold">{row.employeeStats.active}</div>
           </div>
           {/* Inactive */}
           <div className="bg-orange-50/50 border border-orange-100 rounded px-2.5 py-1 min-w-[50px]">
-            <div className="text-[10px] text-orange-400 font-normal">Inactive</div>
+            <div className="text-sm text-inactive font-normal">Inactive</div>
             <div className="text-orange-500 text-sm font-semibold">{row.employeeStats.inactive}</div>
           </div>
           {/* Deleted */}
           <div className="bg-red-50/50 border border-red-100 rounded px-2.5 py-1 min-w-[50px]">
-            <div className="text-[10px] text-red-400 font-normal">Deleted</div>
+            <div className="text-sm text-red-400 font-normal">Deleted</div>
             <div className="text-red-500 text-sm font-semibold">{row.employeeStats.deleted}</div>
           </div>
         </div>

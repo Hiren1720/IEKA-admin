@@ -31,7 +31,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         </label>
       )}
 
-      <div className="bg-gray-100 p-4 flex flex-wrap items-center gap-6 border border-gray-200">
+      <div className="bg-tableHeader p-2.5 flex flex-wrap items-center gap-6 ">
         {options.map((option) => (
           <label
             key={option.value}

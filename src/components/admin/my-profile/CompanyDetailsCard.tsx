@@ -182,7 +182,6 @@ const CompanyDetailsCard: React.FC<CompanyDetailsProps> = ({
         confirmButtonName="Save"
         loading={loading}
       >
-        <div className="bg-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Company Logo */}
             <ImageUpload
@@ -228,7 +227,6 @@ const CompanyDetailsCard: React.FC<CompanyDetailsProps> = ({
               onChange={(e) => handleChange(e.target.value, "gstin")}
             />
           </div>
-        </div>
       </Modal>
     </>
   );

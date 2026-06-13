@@ -94,6 +94,7 @@ api.interceptors.response.use(
       await logoutUser();
 
       return Promise.reject({
+        data: null,
         success: false,
         message: "Session expired. Please login again.",
       });
@@ -104,6 +105,7 @@ api.interceptors.response.use(
     // ======================
     if (status === 403) {
       return Promise.reject({
+        data: null,
         success: false,
         message:
           "You do not have permission to perform this action.",
@@ -115,9 +117,21 @@ api.interceptors.response.use(
     // ======================
     if (status >= 500) {
       return Promise.reject({
+        data: null,
         success: false,
         message:
           "Server error. Please try again later.",
+      });
+    }
+    // ======================
+    // NOT FOUND ERROR
+    // ======================
+    if (status === 404) {
+      return Promise.reject({
+        data: null,
+        success: false,
+        message:
+          error.response.data?.message || "API Not found.",
       });
     }
 

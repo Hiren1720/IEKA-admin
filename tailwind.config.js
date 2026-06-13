@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         /* Brand */
-        primary: "#4b88e4",
+        primary: "#3e7cbe",
         primaryPurple: "#437cd3",
         primaryLight: "#5b84c4",
         primaryDark: "#2e466e",

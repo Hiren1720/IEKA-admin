@@ -38,7 +38,7 @@ const SelectField = ({
   return (
     <div className="" id={`field-${name}`}>
       {label && (
-        <div className="text-sm text-inputLabel font-medium mb-2">
+        <div className="text-sm text-inputLabel font-medium mb-1">
           {label} {required && <span className="text-error">*</span>}
         </div>
       )}

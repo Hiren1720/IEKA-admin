@@ -92,7 +92,7 @@ const LoginForm = ({}: Props) => {
         Signin to create, discover and connect with team.
       </p>
 
-      <form id="signin-form" method="POST" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-3" id="signin-form" method="POST" onSubmit={handleSubmit}>
         <TextField
           label="User Id"
           id="userId"

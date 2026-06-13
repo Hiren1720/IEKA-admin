@@ -24,7 +24,7 @@ const Image: React.FC<ImageProps> = ({
     }
 
     // Full URL
-    if (src.startsWith("blob:") || src.startsWith("http://") || src.startsWith("https://")) {
+    if (src.startsWith("blob:") || src.startsWith("http://") || src.startsWith("https://") || src.startsWith("data:")) {
       return src;
     }
 

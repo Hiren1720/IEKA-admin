@@ -2,10 +2,8 @@ import { IOption, ObjectType } from "../types/common-types";
 import { MenuItem } from "../types/sidebar-types";
 
 export const storageKeys = {
-  authStorage: "authStorage"
+  authStorage: "authStorage",
 };
-
-
 
 export const menuItems: MenuItem[] = [
   {
@@ -40,37 +38,48 @@ export const menuItems: MenuItem[] = [
   },
 ];
 
-export const statusMessage: {[key: string]: string} = {
+export const statusMessage: { [key: string]: string } = {
   ACTIVE: "Active",
   INACTIVE: "Inactive",
-  DELETED: "Deleted"
-}
+  DELETED: "Deleted",
+};
 
-export const statusColor: {[key: string]: string} = {
+export const statusColor: { [key: string]: string } = {
   ACTIVE: "text-success",
   INACTIVE: "text-pending",
-  DELETED: "text-danger"
-}
+  DELETED: "text-danger",
+};
+
+export const moduleEnum: ObjectType = {
+  EMPLOYEE: "EMPLOYEE",
+  PRODUCTION: "PRODUCTION"
+} 
 
 export const companyModules: ObjectType = {
-  employee: "EMPLOYEE",
-  production: "PRODUCTION"
-}
+  employee: moduleEnum.EMPLOYEE,
+  production: moduleEnum.PRODUCTION,
+};
 
 export const gender: ObjectType = {
   male: "Male",
   female: "Female",
-  other: "Other"
-}
+  other: "Other",
+};
 
 export const bankAccount: ObjectType = {
   SAVING: "Saving",
-  CURRENT: "Current"
-}
+  CURRENT: "Current",
+};
 
 export const bankAccountEnum: ObjectType = {
   SAVING: "SAVING",
-  CURRENT: "CURRENT"
+  CURRENT: "CURRENT",
+};
+
+export const statusEnum: ObjectType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  DELETED: "DELETED",
 }
 
 export const genderOptions: IOption[] = [
@@ -96,16 +105,47 @@ export const accountOptions: IOption[] = [
   {
     label: bankAccount.CURRENT,
     value: bankAccountEnum.CURRENT,
-  }
+  },
 ];
 
 export const accountStatusOptions: IOption[] = [
   {
     label: statusMessage.ACTIVE,
-    value: "ACTIVE",
+    value: statusEnum.ACTIVE,
   },
   {
     label: statusMessage.INACTIVE,
-    value: "INACTIVE",
-  }
+    value: statusEnum.INACTIVE,
+  },
 ];
+
+export const yesNo: ObjectType = {
+  "YES": "Yes",
+  "NO": "No"
+}
+export const yesNoOption: IOption[] = [
+  {
+    label: "Yes",
+    value: "YES",
+  },
+  {
+    label: "No",
+    value: "NO",
+  },
+];
+
+export const statusOptions: IOption[] = [
+  {
+    label: statusMessage.ACTIVE,
+    value: statusEnum.ACTIVE,
+  },
+  {
+    label: statusMessage.INACTIVE,
+    value: statusEnum.INACTIVE,
+  },
+  {
+    label: statusMessage.DELETED,
+    value: statusEnum.DELETED,
+  },
+];
+

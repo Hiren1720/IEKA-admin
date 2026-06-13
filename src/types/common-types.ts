@@ -9,11 +9,17 @@ export type AccountType = "SAVING" | "CURRENT";
 
 export type StatusType = "ACTIVE" | "INACTIVE" | "DELETED";
 
-export interface ObjectType {[key: string]: string};
+export interface ObjectType {[key: string]: any};
 
 export interface BankAccount {
   bankAccountNo: number;
   ifscCode: string;
   accountHolderName: string;
   accountType: AccountType;
+}
+
+export interface IEmployeeStats {
+  active: number;
+  inactive: number;
+  deleted: number;
 }

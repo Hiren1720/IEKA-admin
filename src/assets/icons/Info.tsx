@@ -1,22 +1,12 @@
+import { Info } from "lucide-react";
+
 interface IInfoProps {
   onClick?: () => void;
   className?: string;
+  size?: number;
 }
-export default function Info({ onClick = () => {} }: IInfoProps) {
+export default function InfoIcon({ onClick = () => {}, className = "", size = 18 }: IInfoProps) {
   return (
-    <svg
-      onClick={onClick}
-      className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    </svg>
+    <Info onClick={onClick} size={size} className={`text-gray-400 cursor-pointer hover:text-gray-500 ${className}`}/>
   );
 }
