@@ -13,4 +13,4 @@ export const addBankAccount = (payload: BankAccount) =>
   });
 
 export const getBankAccounts = (status?: string) =>
-  apiRequest.get<ApiResponse>(`/bank-accounts/list?${status ? `&status=${status}`:""}`);
+  apiRequest.get<ApiResponse>(`/bank-accounts/list?${status ? `status=${status}`:""}`);

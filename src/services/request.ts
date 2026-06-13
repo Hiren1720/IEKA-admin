@@ -108,8 +108,21 @@ export const apiRequest = {
   },
 
   get: async <T>(url: string) => {
-    const response = await api.get<T>(url);
+    try {
+      const response = await api.get<T>(url);
+  
+      return response.data;
+    } catch(error: any){
+      const apiMessage =
+        error?.response?.data?.message || error?.message;
+        console.log("apiMessage", apiMessage)
 
-    return response.data;
+      toastMessage.error(
+        apiMessage ||
+        "Something went wrong"
+      );
+
+      return error;
+    }
   },
 };

@@ -5,7 +5,7 @@ import { AddCompanyFormData } from ".";
 import TextAreaField from "../../common/text-area/TextAreaField";
 import SelectField from "../../common/select/SelectField";
 import { getBankAccounts } from "../../../apis/all-masters/accounts";
-import { bankAccount, bankAccountEnum } from "../../../constants/constants";
+import { bankAccount, statusEnum } from "../../../constants/constants";
 import { IBankAccount } from "../all-masters/accounts";
 import { IOption } from "../../../types/common-types";
 
@@ -38,7 +38,7 @@ const CompanyDetailsCard: React.FC<CompanyDetailsCardProps> = ({
   
     // get all bank accounts
     const getBankAccountList = async () => {
-      const response = await getBankAccounts(bankAccountEnum.ACTIVE);
+      const response = await getBankAccounts(statusEnum.ACTIVE);
       if(response.success){
         const options = response?.data?.map((ele: IBankAccount) => ({value: ele?._id, label: `${bankAccount[ele.accountType]} | ${ele.accountNo}`}))
         setBankAccounts(options);

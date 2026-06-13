@@ -30,3 +30,19 @@ export const getCompaniesCount = () => {
     `/companies/count`
     );
 }
+
+export const getCompanyById = (companyId: string) => {
+  return apiRequest.get<ApiResponse>(
+    `/companies/${companyId}`
+  )
+}
+
+export const updateCompanyDetails = (payload: FormData, companyId: string) => {
+  return apiRequest.put(
+    `/companies/${companyId}`,
+    payload,
+    {
+      showSuccessToast: true
+    }
+  )
+}

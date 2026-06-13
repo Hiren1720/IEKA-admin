@@ -184,7 +184,6 @@ const PersonalDetailsCard: React.FC<PersonalDetailsProps> = ({
         loading={loading}
         confirmButtonName="Save"
       >
-        <div className="bg-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Person Picture  */}
             <ImageUpload
@@ -204,9 +203,8 @@ const PersonalDetailsCard: React.FC<PersonalDetailsProps> = ({
             {/* <TextField label="Email" placeholder="Enter your email" /> */}
 
             {/* Phone No. */}
-            <TextField label="Phone No." error={errors.phone} onChange={(e) => handleChange(e.target.value, "phone")} value={profileDetail?.phone} placeholder="Phone No. xxxxx xxxxx" />
+            <TextField label="Phone No." type="number" error={errors.phone} onChange={(e) => handleChange(e.target.value, "phone")} value={profileDetail?.phone} placeholder="Phone No. xxxxx xxxxx" />
           </div>
-        </div>
       </Modal>
     </>
   );
